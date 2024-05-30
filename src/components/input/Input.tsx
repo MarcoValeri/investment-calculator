@@ -1,4 +1,7 @@
-const Input = ({label, inputType, onChangeInputValue}: {label: string, inputType: string, onChangeInputValue: any}) => {
+const Input = (
+    {label, inputType, onChangeInputValue, errorValue}:
+    {label: string, inputType: string, onChangeInputValue: any, errorValue: boolean}
+) => {
 
     return (
         <div className="input-group-container">
@@ -7,6 +10,7 @@ const Input = ({label, inputType, onChangeInputValue}: {label: string, inputType
                 type={inputType}
                 onChange={onChangeInputValue}
             />
+            {errorValue && <span className="error-message">Negative value is not allowed</span>}
         </div>
     )
 }
