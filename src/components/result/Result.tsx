@@ -29,8 +29,8 @@ const Result = (
                 {calculateInvestments.map((result, index) => {
                     return (
                         <tr key={index}>
-                            <td>{result.year}</td>
-                            <td></td>
+                            <td>{index + 1}</td>
+                            <td>{getInitialInvestment + result.interest + result.annualInvestment}</td>
                             <td>{result.interest}</td>
                             <td>{result.annualInvestment}</td>
                             <td>{result.valueEndOfYear}</td>
