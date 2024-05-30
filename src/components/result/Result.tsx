@@ -1,4 +1,4 @@
-import {calculateInvestmentResults} from '../../util/investment.ts';
+import {calculateInvestmentResults, formatter} from '../../util/investment.ts';
 
 const Result = (
     {getInitialInvestment, getAnnualInvestment, getExpectedReturn, getDuration}:
@@ -27,13 +27,17 @@ const Result = (
             </thead>
             <tbody className="center">
                 {calculateInvestments.map((result, index) => {
+                    const setInvestmentValue = Math.floor(result.valueEndOfYear + result.annualInvestment);
+                    const setInterest = formatter.format(result.interest);
+                    const setAnnualInvestment = formatter.format(result.annualInvestment);
+                    const setValueEndOfYer = formatter.format(result.valueEndOfYear);
                     return (
                         <tr key={index}>
                             <td>{index + 1}</td>
-                            <td>{getInitialInvestment + result.interest + result.annualInvestment}</td>
-                            <td>{result.interest}</td>
-                            <td>{result.annualInvestment}</td>
-                            <td>{result.valueEndOfYear}</td>
+                            <td>{setInvestmentValue}</td>
+                            <td>{setInterest}</td>
+                            <td>{setAnnualInvestment}</td>
+                            <td>{setValueEndOfYer}</td>
                         </tr>
                     )
                 })}

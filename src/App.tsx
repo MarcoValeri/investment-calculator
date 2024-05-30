@@ -4,8 +4,6 @@ import Header from "./components/header/Header";
 import Result from "./components/result/Result";
 import UserInput from "./components/userInput/UserInput";
 
-import {formatter} from "../src/util/investment";
-
 const App = () => {
 
     const [initialInvestment, setInitialInvestment] = useState(0);
@@ -15,18 +13,22 @@ const App = () => {
 
     const handleDataFromInputInitialInvestment = (getInitialInvestment: any) => {
         setInitialInvestment(getInitialInvestment);
+        console.log(`getInitialInvestment: ${getInitialInvestment}`);
     }
 
     const handleDataFromInputExpectedReturn = (getExpectedReturn: any) => {
         setExpectedReturn(getExpectedReturn);
+        console.log(`getExpectedReturn: ${getExpectedReturn}`);
     }
 
     const handleDataFromInputAnnualInvestment = (getAnnualInvestment: any) => {
         setAnnualInvestment(getAnnualInvestment);
+        console.log(`getAnnualInvestment: ${getAnnualInvestment}`);
     }
 
     const handleDataFromInputDuration = (getDuration: any) => {
         setDuration(getDuration);
+        console.log(`getDuration: ${getDuration}`);
     }
 
     return (
