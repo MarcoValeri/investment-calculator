@@ -13,22 +13,22 @@ const App = () => {
 
     const handleDataFromInputInitialInvestment = (getInitialInvestment: any) => {
         setInitialInvestment(getInitialInvestment);
-        console.log(`getInitialInvestment: ${getInitialInvestment}`);
+        // console.log(`initialInvestment: ${initialInvestment}`);
     }
 
     const handleDataFromInputExpectedReturn = (getExpectedReturn: any) => {
         setExpectedReturn(getExpectedReturn);
-        console.log(`getExpectedReturn: ${getExpectedReturn}`);
+        // console.log(`expectedReturn: ${expectedReturn}`);
     }
 
     const handleDataFromInputAnnualInvestment = (getAnnualInvestment: any) => {
         setAnnualInvestment(getAnnualInvestment);
-        console.log(`getAnnualInvestment: ${getAnnualInvestment}`);
+        // console.log(`annualInvestment: ${annualInvestment}`);
     }
 
     const handleDataFromInputDuration = (getDuration: any) => {
         setDuration(getDuration);
-        console.log(`getDuration: ${getDuration}`);
+        // console.log(`duration: ${duration}`);
     }
 
     return (

@@ -5,6 +5,11 @@ const Result = (
     {getInitialInvestment: number, getAnnualInvestment: number, getExpectedReturn: number, getDuration: number}
 ) => {
 
+    getInitialInvestment = Number(getInitialInvestment);
+    getAnnualInvestment = Number(getAnnualInvestment);
+    getExpectedReturn = Number(getExpectedReturn);
+    getDuration = Number(getDuration);
+
     const calculateInvestments = calculateInvestmentResults(
         {
             initialInvestment: getInitialInvestment,
@@ -13,6 +18,8 @@ const Result = (
             duration: getDuration
         }
     );
+
+    const arrInterestYera: number[] = [];
 
     return (
         <table id="result">
@@ -27,17 +34,27 @@ const Result = (
             </thead>
             <tbody className="center">
                 {calculateInvestments.map((result, index) => {
-                    const setInvestmentValue = Math.floor(result.valueEndOfYear + result.annualInvestment);
-                    const setInterest = formatter.format(result.interest);
-                    const setAnnualInvestment = formatter.format(result.annualInvestment);
-                    const setValueEndOfYer = formatter.format(result.valueEndOfYear);
+                    const setInvestmentValue = result.valueEndOfYear;
+
+                    const setInterest = result.interest;
+
+                    let setAnnualInvestment;
+                    if (index > 0) {
+                        setAnnualInvestment = result.interest + arrInterestYera[index - 1];
+                        arrInterestYera.push(setAnnualInvestment);
+                    } else {
+                        setAnnualInvestment = result.interest;
+                        arrInterestYera.push(result.interest);
+                    }
+                    
+                    const setValueEndOfYer = result.valueEndOfYear - setAnnualInvestment;
                     return (
                         <tr key={index}>
-                            <td>{index + 1}</td>
-                            <td>{setInvestmentValue}</td>
-                            <td>{setInterest}</td>
-                            <td>{setAnnualInvestment}</td>
-                            <td>{setValueEndOfYer}</td>
+                            <td>{result.year}</td>
+                            <td>{formatter.format(setInvestmentValue)}</td>
+                            <td>{formatter.format(setInterest)}</td>
+                            <td>{formatter.format(setAnnualInvestment)}</td>
+                            <td>{formatter.format(setValueEndOfYer)}</td>
                         </tr>
                     )
                 })}

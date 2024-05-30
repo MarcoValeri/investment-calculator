@@ -27,7 +27,7 @@ const UserInput = (
                 <div>
                     <Input
                         label="Initial investment"
-                        inputType="text"
+                        inputType="number"
                         onChangeInputValue={handleChangeValueInputInitialInvestment}
                         />
                     <Input
@@ -44,7 +44,7 @@ const UserInput = (
                     />
                     <Input
                         label="Duration"
-                        inputType="text"
+                        inputType="number"
                         onChangeInputValue={handleChangeValueInputDuration}
                     />
                 </div>
